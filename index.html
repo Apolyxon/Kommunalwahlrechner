@@ -2,6 +2,7 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="data:,">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ausschussvorsitz-Rechner NRW</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -10,7 +11,11 @@
         darkMode: 'class', // or 'media'
       }
     </script>
-  <script type="importmap">
+    <!-- SystemJS for in-browser module loading and transpilation -->
+    <script src="https://unpkg.com/systemjs@6.14.3/dist/s.min.js"></script>
+    <script src="https://unpkg.com/systemjs-plugin-babel@0.0.25/plugin-babel.js"></script>
+    <script src="https://unpkg.com/systemjs-plugin-babel@0.0.25/systemjs-babel-build.js"></script>
+<script type="importmap">
 {
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
@@ -19,20 +24,38 @@
   }
 }
 </script>
-    <!-- Add Babel Standalone for in-browser JSX/TSX transpilation -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
   <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <!-- 
-      Add data-presets to tell Babel how to transpile the code.
-      This is the key to fixing the MIME type error.
-    -->
-    <script 
-      type="text/babel" 
-      data-presets="react,typescript" 
-      data-type="module" 
-      src="./index.tsx"
-    ></script>
+
+    <!-- SystemJS Import Map -->
+    <script type="systemjs-importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.1.1",
+        "react-dom/client": "https://aistudiocdn.com/react-dom@^19.1.1/client"
+      }
+    }
+    </script>
+    
+    <!-- SystemJS Configuration and App Entry Point -->
+    <script>
+      System.config({
+        // Use the babel plugin for transpilation
+        transpiler: 'plugin-babel',
+        // Configure babel options
+        babelOptions: {
+          presets: ["react", "typescript"]
+        },
+        // Tell SystemJS where to find the babel plugin
+        map: {
+          'plugin-babel': 'https://unpkg.com/systemjs-plugin-babel@0.0.25/plugin-babel.js',
+          'systemjs-babel-build': 'https://unpkg.com/systemjs-plugin-babel@0.0.25/systemjs-babel-build.js'
+        }
+      });
+
+      // Import the main application file
+      System.import('./index.tsx').catch(function(err){ console.error(err); });
+    </script>
   </body>
 </html>

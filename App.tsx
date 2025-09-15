@@ -186,8 +186,16 @@ const App: React.FC = () => {
     const lastWinner = allResults[anzahlStellvertreter - 1];
     if (lastWinner && lastWinner.isTie) {
         const tieValue = lastWinner.value;
-        // FIX: Property 'findLastIndex' does not exist on type '{ rank: number; partyName: string; value: number; divisor: number; isTie: boolean; }[]'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2023' or later.
-        const endIndex = allResults.map(r => r.value).lastIndexOf(tieValue) + 1;
+        
+        let lastIndex = -1;
+        for (let i = allResults.length - 1; i >= 0; i--) {
+            if (allResults[i].value === tieValue) {
+                lastIndex = i;
+                break;
+            }
+        }
+        const endIndex = lastIndex + 1;
+
         setBuergermeisterResults(allResults.slice(0, Math.max(anzahlStellvertreter, endIndex)));
     } else {
         setBuergermeisterResults(allResults.slice(0, anzahlStellvertreter));

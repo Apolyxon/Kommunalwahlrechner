@@ -1,0 +1,5 @@
+{
+  "name": "Ausschussvorsitz-Rechner NRW",
+  "description": "Berechnet die Reihenfolge für die Besetzung von Ausschussvorsitzen im Stadtrat nach dem D'Hondt'schen Höchstzahlverfahren gemäß der Gemeindeordnung NRW.",
+  "requestFramePermissions": []
+}

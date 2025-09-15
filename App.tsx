@@ -1,10 +1,11 @@
+
 import React, { useState, useCallback } from 'react';
-import { Fraktion, BerechnungsErgebnis, BerechnungsPartei } from './types';
-import Header from './components/Header';
-import FraktionenManager from './components/FraktionenManager';
-import ErgebnisAnzeige from './components/ErgebnisAnzeige';
-import BuergermeisterRechner from './components/BuergermeisterRechner';
-import Tabs from './components/Tabs';
+import { Fraktion, BerechnungsErgebnis, BerechnungsPartei } from './types.ts';
+import Header from './components/Header.tsx';
+import FraktionenManager from './components/FraktionenManager.tsx';
+import ErgebnisAnzeige from './components/ErgebnisAnzeige.tsx';
+import BuergermeisterRechner from './components/BuergermeisterRechner.tsx';
+import Tabs from './components/Tabs.tsx';
 
 const COLORS = ['red', 'blue', 'green', 'yellow'];
 const COLOR_STATES = [undefined, ...COLORS];

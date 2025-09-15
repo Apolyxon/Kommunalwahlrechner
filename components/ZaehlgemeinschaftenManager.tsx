@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
-import { Fraktion, Zaehlgemeinschaft } from '../types';
-import TrashIcon from './icons/TrashIcon';
+import { Fraktion, Zaehlgemeinschaft } from '../types.ts';
+import TrashIcon from './icons/TrashIcon.tsx';
 
 interface ZGManagerProps {
   fraktionen: Fraktion[];

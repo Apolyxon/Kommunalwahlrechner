@@ -1,8 +1,9 @@
+
 import React from 'react';
-import { Fraktion, BerechnungsErgebnis, BerechnungsPartei } from '../types';
-import FraktionenManager from './FraktionenManager';
-import BuergermeisterErgebnisAnzeige from './BuergermeisterErgebnisAnzeige';
-import ErgebnisAnzeige from './ErgebnisAnzeige';
+import { Fraktion, BerechnungsErgebnis, BerechnungsPartei } from '../types.ts';
+import FraktionenManager from './FraktionenManager.tsx';
+import BuergermeisterErgebnisAnzeige from './BuergermeisterErgebnisAnzeige.tsx';
+import ErgebnisAnzeige from './ErgebnisAnzeige.tsx';
 
 interface BuergermeisterRechnerProps {
     fraktionen: Fraktion[];

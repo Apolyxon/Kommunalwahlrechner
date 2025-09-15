@@ -1,5 +1,6 @@
+
 import React, { useMemo } from 'react';
-import { BerechnungsErgebnis } from '../types';
+import { BerechnungsErgebnis } from '../types.ts';
 
 interface BuergermeisterErgebnisAnzeigeProps {
   results: BerechnungsErgebnis[];

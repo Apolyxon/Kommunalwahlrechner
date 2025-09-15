@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { BerechnungsErgebnis, BerechnungsPartei } from '../types';
+import { BerechnungsErgebnis, BerechnungsPartei } from '../types.ts';
 
 interface ErgebnisAnzeigeProps {
   results: BerechnungsErgebnis[];

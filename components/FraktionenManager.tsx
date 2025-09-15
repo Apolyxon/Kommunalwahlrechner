@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
-import { Fraktion } from '../types';
-import TrashIcon from './icons/TrashIcon';
+import { Fraktion } from '../types.ts';
+import TrashIcon from './icons/TrashIcon.tsx';
 
 interface FraktionenManagerProps {
   fraktionen: Fraktion[];

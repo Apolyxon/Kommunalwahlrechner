@@ -2,7 +2,6 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ausschussvorsitz-Rechner NRW</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -25,7 +24,15 @@
 </head>
   <body class="bg-gray-100 dark:bg-gray-900">
     <div id="root"></div>
-    <!-- Change script type to text/babel to be processed by Babel -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+    <!-- 
+      Add data-presets to tell Babel how to transpile the code.
+      This is the key to fixing the MIME type error.
+    -->
+    <script 
+      type="text/babel" 
+      data-presets="react,typescript" 
+      data-type="module" 
+      src="./index.tsx"
+    ></script>
   </body>
 </html>
